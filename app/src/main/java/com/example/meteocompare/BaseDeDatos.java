@@ -52,7 +52,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 "avgTemp FLOAT," +
                 "precipitacion FLOAT, " +
                 "avgViento FLOAT," +
-                "rachaViento FLOAT, " +
+                "uvMax FLOAT, " +
                 "fecha DATE, " +
                 "cielo TEXT, " +
                 "municipio TEXT, " +
@@ -92,16 +92,16 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     // Metodo para insertar datos de busqueda en la BD
     public int insertDataBusqueda(float maxTemp, float minTemp, float avgTemp, float avgViento,
-                                  float rachaViento, float precipitacion, String cielo,
+                                  float uvMax, float precipitacion, String cielo,
                                   Date fecha, String municipio, String provincia){
         SQLiteDatabase db = getWritableDatabase();
 
         // Inserta datos
         System.out.println("Fecha de la busqueda: " + fecha.toString());
 
-        String insert = "INSERT INTO busqueda (maxTemp, minTemp, avgTemp, precipitacion, avgViento, rachaViento, fecha, cielo, municipio, provincia) " +
+        String insert = "INSERT INTO busqueda (maxTemp, minTemp, avgTemp, precipitacion, avgViento, uvMax, fecha, cielo, municipio, provincia) " +
                 "VALUES (\""+ maxTemp +"\" , \""+ minTemp + "\" , \""+ avgTemp + "\" , \""+ precipitacion + "\", \"" +
-                avgViento + "\", \"" + rachaViento + "\" , \"" + fecha.getTime() + "\" , \"" + cielo +
+                avgViento + "\", \"" + uvMax + "\" , \"" + fecha.getTime() + "\" , \"" + cielo +
                 "\", \"" + municipio + "\", \"" + provincia +"\")";
         db.execSQL(insert);
 
@@ -124,7 +124,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 busqueda1.getMinTemp(),
                 busqueda1.getAvgTemp(),
                 busqueda1.getAvgViento(),
-                busqueda1.getRachaViento(),
+                busqueda1.getUvMax(),
                 busqueda1.getPrecipitacion(),
                 busqueda1.getCielo(),
                 busqueda1.getFecha(),
@@ -137,7 +137,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 busqueda2.getMinTemp(),
                 busqueda2.getAvgTemp(),
                 busqueda2.getAvgViento(),
-                busqueda2.getRachaViento(),
+                busqueda2.getUvMax(),
                 busqueda2.getPrecipitacion(),
                 busqueda2.getCielo(),
                 busqueda2.getFecha(),
@@ -179,7 +179,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 cursor.getFloat(1),             // maxTemp
                 cursor.getFloat(2),             // avgTemp
                 cursor.getFloat(5),             // avgViento
-                cursor.getFloat(6),             // rachaViento
+                cursor.getFloat(6),             // uvMax
                 cursor.getFloat(4),             // precipitacion
                 cursor.getString(8)             // cielo
         );

@@ -241,14 +241,14 @@
         app:layout_constraintVertical_bias="0.50" />
 
     <TextView
-        android:id="@+id/tvRachaViento"
+        android:id="@+id/tvUvMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="@string/txt_racha_viento"
+        android:text="@string/txt_uv_max"
         android:textAlignment="center"
-        android:textColor="@color/colorGris"
+        android:textColor="@color/colorVioleta"
         android:textSize="16dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -259,7 +259,7 @@
         app:layout_constraintVertical_bias="0.60" />
 
     <TextView
-        android:id="@+id/tvRachaViento1"
+        android:id="@+id/tvUvMax1"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -277,7 +277,7 @@
         app:layout_constraintVertical_bias="0.60" />
 
     <TextView
-        android:id="@+id/tvRachaViento2"
+        android:id="@+id/tvUvMax2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

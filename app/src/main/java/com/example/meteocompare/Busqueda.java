@@ -13,13 +13,13 @@ public class Busqueda implements Serializable {
     private float minTemp;
     private float avgTemp;
     private float avgViento;
-    private float rachaViento;
+    private float uvMax;
     private String cielo;
     private float precipitacion;
 
 
     // Const
-    public Busqueda(int id, String ubicacion, String provincia, Date fecha, float minTemp, float maxTemp, float avgTemp, float avgViento, float rachaViento, float precipitacion, String cielo) {
+    public Busqueda(int id, String ubicacion, String provincia, Date fecha, float minTemp, float maxTemp, float avgTemp, float avgViento, float uvMax, float precipitacion, String cielo) {
         this.id = id;
         this.ubicacion = ubicacion;
         this.provincia = provincia;
@@ -28,7 +28,7 @@ public class Busqueda implements Serializable {
         this.maxTemp = maxTemp;
         this.avgTemp = avgTemp;
         this.avgViento = avgViento;
-        this.rachaViento = rachaViento;
+        this.uvMax = uvMax;
         this.precipitacion = precipitacion;
         this.cielo = cielo;
     }
@@ -43,7 +43,7 @@ public class Busqueda implements Serializable {
         this.maxTemp = 0;
         this.avgTemp = 0;
         this.avgViento = 0;
-        this.rachaViento = 0;
+        this.uvMax = 0;
         this.precipitacion = 0;
         this.cielo = "";
     }
@@ -109,12 +109,12 @@ public class Busqueda implements Serializable {
         this.avgViento = avgViento;
     }
 
-    public float getRachaViento() {
-        return rachaViento;
+    public float getUvMax() {
+        return uvMax;
     }
 
-    public void setRachaViento(float rachaViento) {
-        this.rachaViento = rachaViento;
+    public void setUvMax(float uvMax) {
+        this.uvMax = uvMax;
     }
 
     public float getPrecipitacion() {
@@ -145,7 +145,7 @@ public class Busqueda implements Serializable {
                 ", maxTemp=" + maxTemp +
                 ", avgTemp=" + avgTemp +
                 ", avgViento=" + avgViento +
-                ", rachaViento=" + rachaViento +
+                ", uxMax=" + uvMax +
                 ", precipitacion=" + precipitacion +
                 ", cielo=" + cielo +
                 '}';

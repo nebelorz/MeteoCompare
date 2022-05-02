@@ -27,8 +27,8 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
     private TextView tvMinTemp2;
     private TextView tvAvgTemp1;
     private TextView tvAvgTemp2;
-    private TextView tvRachaViento1;
-    private TextView tvRachaViento2;
+    private TextView tvUvMax1;
+    private TextView tvUvMax2;
     private TextView tvAvgViento1;
     private TextView tvAvgViento2;
     private TextView tvPrecipitacion1;
@@ -51,8 +51,8 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         tvMinTemp2 = findViewById(R.id.tvMinTemp2);
         tvAvgTemp1 = findViewById(R.id.tvAvgTemp1);
         tvAvgTemp2 = findViewById(R.id.tvAvgTemp2);
-        tvRachaViento1 = findViewById(R.id.tvRachaViento1);
-        tvRachaViento2 = findViewById(R.id.tvRachaViento2);
+        tvUvMax1 = findViewById(R.id.tvUvMax1);
+        tvUvMax2 = findViewById(R.id.tvUvMax2);
         tvAvgViento1 = findViewById(R.id.tvAvgViento1);
         tvAvgViento2 = findViewById(R.id.tvAvgViento2);
         tvPrecipitacion1 = findViewById(R.id.tvPrecipitacion1);
@@ -68,7 +68,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         int minTemp1 = prediccion1.getPrediccion().getDia().get(1).getTemperatura().getMinima();
         float avgTemp1 = (maxTemp1+minTemp1)/2;
         int precipitacion1 = getProbPrecMax(prediccion1);
-        int rachaViento1 = prediccion1.getPrediccion().getDia().get(0).getRachaMax().get(0).getValue();
+        int uvMax1 = prediccion1.getPrediccion().getDia().get(1).getUvMax();
         int maxViento1 = getVientoMax(prediccion1);
         int minViento1 = getVientoMin(prediccion1);
         int avgViento1 = (maxViento1+minViento1)/2;
@@ -76,14 +76,15 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         String municipio1 = prediccion1.getNombre();
         String provincia1 = prediccion1.getProvincia();
 
-        // Obtencion datos de la prediccion 1
+        // Obtencion datos de la prediccion 2
         int maxTemp2 = prediccion2.getPrediccion().getDia().get(1).getTemperatura().getMaxima();
         int minTemp2 = prediccion2.getPrediccion().getDia().get(1).getTemperatura().getMinima();
         float avgTemp2 = (maxTemp2+minTemp2)/2;
         int precipitacion2 = getProbPrecMax(prediccion2);
-        int avgViento2 = prediccion2.getPrediccion().getDia().get(0).getViento().get(0).getVelocidad();
-        int rachaViento2 = getVientoMax(prediccion2);
+        int uvMax2 = prediccion2.getPrediccion().getDia().get(1).getUvMax();
+        int maxViento2 = getVientoMax(prediccion2);
         int minViento2 = getVientoMin(prediccion2);
+        int avgViento2 = (maxViento2+minViento2)/2;
         String cielo2 = prediccion2.getPrediccion().getDia().get(1).getEstadoCielo().get(0).getDescripcion();
         String municipio2 = prediccion2.getNombre();
         String provincia2 = prediccion2.getProvincia();
@@ -111,8 +112,8 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         tvMinTemp2.setText(""+minTemp2+"°C");
         tvAvgTemp1.setText(""+avgTemp1+"°C");
         tvAvgTemp2.setText(""+avgTemp2+"°C");
-        tvRachaViento1.setText(""+rachaViento1+"km/h");
-        tvRachaViento2.setText(""+rachaViento2+"km/h");
+        tvUvMax1.setText(""+uvMax1+" IUV");
+        tvUvMax2.setText(""+uvMax2+" IUV");
         tvAvgViento1.setText(""+avgViento1+"km/h");
         tvAvgViento2.setText(""+avgViento2+"km/h");
         tvPrecipitacion1.setText(""+precipitacion1+"%");
@@ -120,8 +121,8 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         tvCielo1.setText(cielo1);
         tvCielo2.setText(cielo2);
 
-        Busqueda busqueda1 = new Busqueda(0, municipio1, provincia1, fecha1, minTemp1, maxTemp1, avgTemp1, avgViento1, rachaViento1, precipitacion1, cielo1);
-        Busqueda busqueda2 = new Busqueda(0, municipio2, provincia2, fecha1, minTemp2, maxTemp2, avgTemp2, avgViento2, rachaViento2, precipitacion2, cielo2);
+        Busqueda busqueda1 = new Busqueda(0, municipio1, provincia1, fecha1, minTemp1, maxTemp1, avgTemp1, avgViento1, uvMax1, precipitacion1, cielo1);
+        Busqueda busqueda2 = new Busqueda(0, municipio2, provincia2, fecha1, minTemp2, maxTemp2, avgTemp2, avgViento2, uvMax2, precipitacion2, cielo2);
 
         // Instancia de la BD
         BaseDeDatos bd = new BaseDeDatos(this, "android", null, 1);

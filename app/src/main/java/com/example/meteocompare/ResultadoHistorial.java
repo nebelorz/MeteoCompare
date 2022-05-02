@@ -19,8 +19,8 @@ public class ResultadoHistorial extends AppCompatActivity {
     private TextView tvMinTemp2;
     private TextView tvAvgTemp1;
     private TextView tvAvgTemp2;
-    private TextView tvRachaViento1;
-    private TextView tvRachaViento2;
+    private TextView tvUvMax1;
+    private TextView tvUvMax2;
     private TextView tvAvgViento1;
     private TextView tvAvgViento2;
     private TextView tvPrecipitacion1;
@@ -43,8 +43,8 @@ public class ResultadoHistorial extends AppCompatActivity {
         tvMinTemp2 = findViewById(R.id.tvMinTemp2);
         tvAvgTemp1 = findViewById(R.id.tvAvgTemp1);
         tvAvgTemp2 = findViewById(R.id.tvAvgTemp2);
-        tvRachaViento1 = findViewById(R.id.tvRachaViento1);
-        tvRachaViento2 = findViewById(R.id.tvRachaViento2);
+        tvUvMax1 = findViewById(R.id.tvUvMax1);
+        tvUvMax2 = findViewById(R.id.tvUvMax2);
         tvAvgViento1 = findViewById(R.id.tvAvgViento1);
         tvAvgViento2 = findViewById(R.id.tvAvgViento2);
         tvPrecipitacion1 = findViewById(R.id.tvPrecipitacion1);
@@ -62,7 +62,7 @@ public class ResultadoHistorial extends AppCompatActivity {
         tvMaxTemp1.setText(""+comparacion.getBusqueda1().getMaxTemp()+"°C");
         tvMinTemp1.setText(""+comparacion.getBusqueda1().getMinTemp()+"°C");
         tvAvgTemp1.setText(""+comparacion.getBusqueda1().getAvgTemp()+"°C");
-        tvRachaViento1.setText(""+comparacion.getBusqueda1().getRachaViento()+"km/h");
+        tvUvMax1.setText(""+comparacion.getBusqueda1().getUvMax()+" IUV");
         tvAvgViento1.setText(""+comparacion.getBusqueda1().getAvgViento()+"km/h");
         tvPrecipitacion1.setText(""+comparacion.getBusqueda1().getPrecipitacion()+"%");
         tvCielo1.setText(""+comparacion.getBusqueda1().getCielo());
@@ -71,7 +71,7 @@ public class ResultadoHistorial extends AppCompatActivity {
         tvMaxTemp2.setText(""+comparacion.getBusqueda2().getMaxTemp()+"°C");
         tvMinTemp2.setText(""+comparacion.getBusqueda2().getMinTemp()+"°C");
         tvAvgTemp2.setText(""+comparacion.getBusqueda2().getAvgTemp()+"°C");
-        tvRachaViento2.setText(""+comparacion.getBusqueda2().getRachaViento()+"km/h");
+        tvUvMax2.setText(""+comparacion.getBusqueda2().getUvMax()+" IUV");
         tvAvgViento2.setText(""+comparacion.getBusqueda2().getAvgViento()+"km/h");
         tvPrecipitacion2.setText(""+comparacion.getBusqueda2().getPrecipitacion()+"%");
         tvCielo2.setText(""+comparacion.getBusqueda2().getCielo());

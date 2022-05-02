@@ -45,7 +45,7 @@
     <string name="txt_max_temp">Máxima</string>
     <string name="txt_min_temp">Mínima</string>
     <string name="txt_avg_temp">Media</string>
-    <string name="txt_racha_viento">Racha de viento</string>
+    <string name="txt_uv_max">Índice UV máx.</string>
     <string name="txt_avg_viento">Velocidad de viento</string>
     <string name="txt_precipitacion">% Lluvia</string>
     <string name="txt_estado_cielo">Cielo</string>

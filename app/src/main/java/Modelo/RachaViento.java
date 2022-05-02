@@ -10,16 +10,16 @@ public class RachaViento implements Serializable {
 
     @SerializedName("value")
     @Expose
-    private String value;
+    private int value;
 
     @SerializedName("periodo")
     @Expose
     private String periodo;
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
-    public void setValue(String value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

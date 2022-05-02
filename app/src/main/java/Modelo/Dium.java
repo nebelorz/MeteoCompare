@@ -27,7 +27,7 @@ public class Dium implements Serializable {
 
     @SerializedName("rachaVientos")
     @Expose
-    private List<RachaViento> rachaVientos = null;
+    private List<RachaViento> rachaViento = null;
 
     @SerializedName("temperatura")
     @Expose
@@ -49,18 +49,15 @@ public class Dium implements Serializable {
     @Expose
     private String fecha;
 
+    // Gets & Sets
     public List<ProbPrecipitacion> getProbPrecipitacion() {
         return probPrecipitacion;
     }
-
-    public void setProbPrecipitacion(List<ProbPrecipitacion> probPrecipitacion) {
-        this.probPrecipitacion = probPrecipitacion;
-    }
+    public void setProbPrecipitacion(List<ProbPrecipitacion> probPrecipitacion) { this.probPrecipitacion = probPrecipitacion; }
 
     public List<CotaNieve> getCotaNieve() {
         return cotaNieve;
     }
-
     public void setCotaNieve(List<CotaNieve> cotaNieve) {
         this.cotaNieve = cotaNieve;
     }
@@ -68,7 +65,6 @@ public class Dium implements Serializable {
     public List<EstadoCielo> getEstadoCielo() {
         return estadoCielo;
     }
-
     public void setCielo(List<EstadoCielo> estadoCielo) {
         this.estadoCielo = estadoCielo;
     }
@@ -76,23 +72,16 @@ public class Dium implements Serializable {
     public List<Viento> getViento() {
         return viento;
     }
-
     public void setViento(List<Viento> viento) {
         this.viento = viento;
     }
 
-    public List<RachaViento> getRachaMax() {
-        return rachaVientos;
-    }
-
+    public List<RachaViento> getRachaMax() { return rachaViento; }
     public void setRachaMax(List<RachaViento> rachaVientos) {
-        this.rachaVientos = rachaVientos;
+        this.rachaViento = rachaVientos;
     }
 
-    public Temperatura getTemperatura() {
-        return temperatura;
-    }
-
+    public Temperatura getTemperatura() { return temperatura; }
     public void setTemperatura(Temperatura temperatura) {
         this.temperatura = temperatura;
     }
@@ -100,23 +89,14 @@ public class Dium implements Serializable {
     public SensacionTermica getSensTermica() {
         return sensacionTermica;
     }
-
-    public void setSensTermica(SensacionTermica sensacionTermica) {
-        this.sensacionTermica = sensacionTermica;
-    }
+    public void setSensTermica(SensacionTermica sensacionTermica) { this.sensacionTermica = sensacionTermica; }
 
     public HumedadRelativa getHumedadRelativa() {
         return humedadRelativa;
     }
+    public void setHumedadRelativa(HumedadRelativa humedadRelativa) { this.humedadRelativa = humedadRelativa; }
 
-    public void setHumedadRelativa(HumedadRelativa humedadRelativa) {
-        this.humedadRelativa = humedadRelativa;
-    }
-
-    public Integer getUvMax() {
-        return uvMax;
-    }
-
+    public Integer getUvMax() { return uvMax; }
     public void setUvMax(Integer uvMax) {
         this.uvMax = uvMax;
     }
@@ -124,7 +104,6 @@ public class Dium implements Serializable {
     public String getFecha() {
         return fecha;
     }
-
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
@@ -136,7 +115,7 @@ public class Dium implements Serializable {
                 ", cotaNieve=" + cotaNieve +
                 ", estadoCielo=" + estadoCielo +
                 ", viento=" + viento +
-                ", rachaVientos=" + rachaVientos +
+                ", rachaViento=" + rachaViento +
                 ", temperatura=" + temperatura +
                 ", sensacionTermica=" + sensacionTermica +
                 ", humedadRelativa=" + humedadRelativa +
