@@ -1,0 +1,75 @@
+<resources>
+    <!-- APP -->
+    <string name="app_name">MeteoCompare</string>
+
+    <!-- Activity Comparacion -->
+    <!-- Textos -->
+    <string name="txt_comparacion">Selecciona dos localidades</string>
+    <string name="txt_localidad_1">Localidad 1</string>
+    <string name="txt_localidad_2">Localidad 2</string>
+    <!-- Buttons -->
+    <string name="button_realizar_comparacion">Go!</string>
+    <!-- Content Description -->
+    <string name="content_description_comparacion">Compara el clima de dos localidades diferentes</string>
+
+
+    <!-- Activity Historial -->
+    <!-- Textos -->
+    <string name="txt_historial">Historial</string>
+
+
+    <!-- Activity Login -->
+    <!-- Textos -->
+    <string name="txt_correo">Correo</string>
+    <string name="txt_password">Password</string>
+    <!-- Buttons -->
+    <string name="button_login_usuario">Login</string>
+
+
+    <!-- Activity Main -->
+    <!-- Buttons -->
+    <string name="button_login">Login</string>
+    <string name="button_registrarse">Registrarse</string>
+
+
+    <!-- Activity Registro -->
+    <!-- Textos (Uso los mismos textos para las casillas de correo y password que en Activity Login) -->
+    <string name="txt_nombre">Nombre</string>
+    <!-- Buttons -->
+    <string name="button_registrar_usuario">Registrarme</string>
+
+
+    <!-- Activity Resultado Comparacion -->
+    <!-- Textos -->
+    <string name="txt_resultado_comparacion">Resultado</string>
+    <string name="txt_max_temp">Máxima</string>
+    <string name="txt_min_temp">Mínima</string>
+    <string name="txt_avg_temp">Media</string>
+    <string name="txt_racha_viento">Racha de viento</string>
+    <string name="txt_avg_viento">Velocidad de viento</string>
+    <string name="txt_precipitacion">% Lluvia</string>
+    <string name="txt_estado_cielo">Cielo</string>
+
+
+    <!-- Activity Usuario -->
+    <!-- Textos -->
+    <string name="txt_bienvenida">Bienvenid@ </string>
+    <!-- Buttons -->
+    <string name="button_comparar">Comparar</string>
+    <string name="button_historial">Historial</string>
+    <string name="button_logout">Logout</string>
+
+
+
+    <!-- Toasts -->
+    <string name="toast_login_correcto">Login correcto!</string>
+    <string name="toast_login_incorrecto">Login incorrecto</string>
+    <string name="toast_registro_correcto">Registro correcto!</string>
+    <string name="toast_email_existente">El correo ya está en uso</string>
+    <string name="toast_email_incorrecto">Introduce un correo válido (ejemplo@gmail.com)</string>
+    <string name="toast_password_incorrecto">Tu contraseña debe contener 8 caracteres y almenos una mayúscula</string>
+
+    <string name="toast_seleccion_provincia">Selecciona una provincia</string>
+    <string name="toast_seleccion_municipio">Selecciona un municipio</string>
+    <string name="toast_error_cod_provincia">Error al obtener el código de provincia</string>
+</resources>
