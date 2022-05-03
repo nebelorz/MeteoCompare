@@ -1,5 +1,6 @@
 package com.example.meteocompare;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -20,8 +21,12 @@ public class ActivityHistorial extends AppCompatActivity {
     TextView historial4;
     TextView historial5;
 
-    List<Comparacion> comparacionList;
+    String separador = " || ";
+    String vs = " <-> ";
 
+    List<Comparacion> comparacionLista;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class ActivityHistorial extends AppCompatActivity {
         historial4 = findViewById(R.id.H4);
         historial5 = findViewById(R.id.H5);
 
-        // No se podrá clicar en los textview
+        // Click no permitido
         historial1.setEnabled(false);
         historial2.setEnabled(false);
         historial3.setEnabled(false);
@@ -43,68 +48,68 @@ public class ActivityHistorial extends AppCompatActivity {
 
         // Datos de las ultimas comparaciones
         BaseDeDatos bd = new BaseDeDatos(this, "android", null, 1);
-        comparacionList = bd.getDataComparacion(UsuarioHolder.getInstance().getUsuarioLogueado().getId());
+        comparacionLista = bd.getDataComparacion(UsuarioHolder.getInstance().getUsuarioLogueado().getId());
 
         // Guardamos datos en el historial
-        UsuarioHolder.getInstance().getUsuarioLogueado().setHistorial(new Historial(comparacionList));
+        UsuarioHolder.getInstance().getUsuarioLogueado().setHistorial(new Historial(comparacionLista));
 
         // DateFormat para la fecha
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         // Muestra las comparaciones
-        for (Comparacion comparacion : comparacionList)
+        for (Comparacion comparacion : comparacionLista)
         {
             System.out.println("Comparacion: " + comparacion.toString());
         }
 
-        if (comparacionList.size() > 0) {
+        if (comparacionLista.size() > 0) {
             historial1.setText(
-                    dateFormat.format(comparacionList.get(0).getFecha()) +
-                    " || " +
-                    comparacionList.get(0).getBusqueda1().getUbicacion() +
-                    " <-> " +
-                    comparacionList.get(0).getBusqueda2().getUbicacion() +
-                    " ||");
+                    dateFormat.format(comparacionLista.get(0).getFecha()) +
+                    separador +
+                    comparacionLista.get(0).getBusqueda1().getUbicacion() +
+                    vs +
+                    comparacionLista.get(0).getBusqueda2().getUbicacion() +
+                    separador);
             historial1.setEnabled(true);
 
-            if (comparacionList.size() > 1) {
+            if (comparacionLista.size() > 1) {
                 historial2.setText(
-                        dateFormat.format(comparacionList.get(1).getFecha()) +
-                        " || " +
-                        comparacionList.get(1).getBusqueda1().getUbicacion() +
-                        " <-> " +
-                        comparacionList.get(1).getBusqueda2().getUbicacion() +
-                        " ||");
+                        dateFormat.format(comparacionLista.get(0).getFecha()) +
+                        separador +
+                        comparacionLista.get(1).getBusqueda1().getUbicacion() +
+                        vs +
+                        comparacionLista.get(1).getBusqueda2().getUbicacion() +
+                        separador);
                 historial2.setEnabled(true);
             }
-            if (comparacionList.size() > 2) {
+            if (comparacionLista.size() > 2) {
                 historial3.setText(
-                        dateFormat.format(comparacionList.get(2).getFecha()) +
-                        " || " +
-                        comparacionList.get(2).getBusqueda1().getUbicacion() +
-                        " <-> " +
-                        comparacionList.get(2).getBusqueda2().getUbicacion() +
-                        " ||");
+                        dateFormat.format(comparacionLista.get(0).getFecha()) +
+                        separador +
+                        comparacionLista.get(2).getBusqueda1().getUbicacion() +
+                        vs +
+                        comparacionLista.get(2).getBusqueda2().getUbicacion() +
+                        separador);
                 historial3.setEnabled(true);
             }
-            if (comparacionList.size() > 3) {
+            if (comparacionLista.size() > 3) {
                 historial4.setText(
-                        dateFormat.format(comparacionList.get(3).getFecha()) +
-                        " || " +
-                        comparacionList.get(3).getBusqueda1().getUbicacion() +
-                        " <-> " +
-                        comparacionList.get(3).getBusqueda2().getUbicacion() +
-                        " ||");
+                        dateFormat.format(comparacionLista.get(3).getFecha()) +
+                        separador +
+                        comparacionLista.get(3).getBusqueda1().getUbicacion() +
+                        vs +
+                        comparacionLista.get(3).getBusqueda2().getUbicacion() +
+                        separador);
                 historial4.setEnabled(true);
             }
-            if (comparacionList.size() > 4) {
+            if (comparacionLista.size() > 4) {
                 historial5.setText(
-                        dateFormat.format(comparacionList.get(4).getFecha()) +
-                        " || " +
-                        comparacionList.get(4).getBusqueda1().getUbicacion() +
-                        " <-> " +
-                        comparacionList.get(4).getBusqueda2().getUbicacion() +
-                        " ||");
+                        dateFormat.format(comparacionLista.get(4).getFecha()) +
+                        separador +
+                        comparacionLista.get(4).getBusqueda1().getUbicacion() +
+                        vs +
+                        comparacionLista.get(4).getBusqueda2().getUbicacion() +
+                        separador);
                 historial5.setEnabled(true);
             }
         } else {
@@ -115,7 +120,7 @@ public class ActivityHistorial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHistorial.this, ResultadoHistorial.class);
-                intent.putExtra("comparacion", comparacionList.get(0));
+                intent.putExtra("comparacion", comparacionLista.get(0));
                 startActivity(intent);
             }
         });
@@ -124,7 +129,7 @@ public class ActivityHistorial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHistorial.this, ResultadoHistorial.class);
-                intent.putExtra("comparacion", comparacionList.get(1));
+                intent.putExtra("comparacion", comparacionLista.get(1));
                 startActivity(intent);
 
             }
@@ -134,7 +139,7 @@ public class ActivityHistorial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHistorial.this, ResultadoHistorial.class);
-                intent.putExtra("comparacion", comparacionList.get(2));
+                intent.putExtra("comparacion", comparacionLista.get(2));
                 startActivity(intent);
             }
         });
@@ -143,7 +148,7 @@ public class ActivityHistorial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHistorial.this, ResultadoHistorial.class);
-                intent.putExtra("comparacion", comparacionList.get(3));
+                intent.putExtra("comparacion", comparacionLista.get(3));
                 startActivity(intent);
             }
         });
@@ -152,7 +157,7 @@ public class ActivityHistorial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHistorial.this, ResultadoHistorial.class);
-                intent.putExtra("comparacion", comparacionList.get(4));
+                intent.putExtra("comparacion", comparacionLista.get(4));
                 startActivity(intent);
             }
         });
