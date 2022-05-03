@@ -27,19 +27,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ActivityComparacion extends AppCompatActivity {
 
     // Atts
+    // Spinner Provincia 1
     Spinner spinnerProvincia1;
     Spinner spinnerLocalidad1;
 
+    // Spinner Provincia 2
     Spinner spinnerProvincia2;
     Spinner spinnerLocalidad2;
 
-    Button buttonCompara;
+    // Boton para iniciar la comparacion
+    Button buttonComparar;
 
-    String baseUrl = "https://opendata.aemet.es/";
+    String urlAemet = "https://opendata.aemet.es/";
     PrediccionMunicipio prediccion1;
     PrediccionMunicipio prediccion2;
-    boolean pred1rx;
-    boolean pred2rx;
+    boolean pred1Bool;
+    boolean pred2Bool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +66,9 @@ public class ActivityComparacion extends AppCompatActivity {
         String[] provincias = csvList.get(0);
 
         // Crear lista
-        List<String> provinciasList = new ArrayList<String>();
+        List<String> provinciasList = new ArrayList<>();
 
-        // Añado "provincia" como titulo informativo
+        // Añado string como texto informativo
         provinciasList.add("- Selecciona una provincia -");
 
         // Convierto el array a lista
@@ -75,18 +78,18 @@ public class ActivityComparacion extends AppCompatActivity {
         }
 
         // Se añade el contenido a los spinners
-        ArrayAdapter<String> provincia1 = new ArrayAdapter<String>(this, R.layout.spinner, provinciasList);
+        ArrayAdapter<String> provincia1 = new ArrayAdapter<>(this, R.layout.spinner, provinciasList);
         spinnerProvincia1.setAdapter(provincia1);
 
-        ArrayAdapter<String> localidad1 = new ArrayAdapter<String>(this, R.layout.spinner, opciones);
+        ArrayAdapter<String> localidad1 = new ArrayAdapter<>(this, R.layout.spinner, opciones);
         spinnerLocalidad1.setAdapter(localidad1);
         spinnerLocalidad1.setEnabled(false);
         spinnerLocalidad1.setClickable(false);
 
-        ArrayAdapter<String> provincia2 = new ArrayAdapter<String>(this, R.layout.spinner, provinciasList);
+        ArrayAdapter<String> provincia2 = new ArrayAdapter<>(this, R.layout.spinner, provinciasList);
         spinnerProvincia2.setAdapter(provincia2);
 
-        ArrayAdapter<String> localidad2 = new ArrayAdapter<String>(this, R.layout.spinner, opciones);
+        ArrayAdapter<String> localidad2 = new ArrayAdapter<>(this, R.layout.spinner, opciones);
         spinnerLocalidad2.setAdapter(localidad2);
         spinnerLocalidad2.setEnabled(false);
         spinnerLocalidad2.setClickable(false);
@@ -101,7 +104,6 @@ public class ActivityComparacion extends AppCompatActivity {
                     // String con el nombre de los municipios de la provincia, sustituyendo
                     // las "ñ", acentos y espacios
                     String municipiosDeProvincia = "municipios_" + parent.getItemAtPosition(pos);
-
                     municipiosDeProvincia = municipiosDeProvincia.toLowerCase();
                     municipiosDeProvincia = municipiosDeProvincia.replace('á', 'a');
                     municipiosDeProvincia = municipiosDeProvincia.replace('é', 'e');
@@ -122,9 +124,9 @@ public class ActivityComparacion extends AppCompatActivity {
                     String[] municipios = csvListMunicipios1.get(0);
 
                     // Crear lista
-                    List<String> municipiosList = new ArrayList<String>();
+                    List<String> municipiosList = new ArrayList<>();
 
-                    // Texto informativo
+                    // Texto informativo del spinner
                     municipiosList.add("- Selecciona un municipio -");
 
                     // Convierto el array a lista
@@ -132,20 +134,21 @@ public class ActivityComparacion extends AppCompatActivity {
                         municipiosList.add(municipios[i]);
                     }
 
-                    ArrayAdapter<String> localidad1 = new ArrayAdapter<String>(ActivityComparacion.this, R.layout.spinner, municipiosList);
+                    ArrayAdapter<String> localidad1 = new ArrayAdapter<>(ActivityComparacion.this, R.layout.spinner, municipiosList);
                     spinnerLocalidad1.setAdapter(localidad1);
                     spinnerLocalidad1.setEnabled(true);
                     spinnerLocalidad1.setClickable(true);
                 } else {
-                    List<String> defaultText = new ArrayList<String>();
+                    List<String> defaultText = new ArrayList<>();
                     defaultText.add("- Selecciona un municipio -");
-                    ArrayAdapter<String> localidad1 = new ArrayAdapter<String>(ActivityComparacion.this, R.layout.spinner, defaultText);
+                    ArrayAdapter<String> localidad1 = new ArrayAdapter<>(ActivityComparacion.this, R.layout.spinner, defaultText);
                     spinnerLocalidad1.setAdapter(localidad1);
                     spinnerLocalidad1.setEnabled(false);
                     spinnerLocalidad1.setClickable(false);
                 }
             }
 
+            // Si nada se selecciona en el spinner
             public void onNothingSelected(AdapterView<?> parent) {
                 // Another interface callback
                 // <-- Sacado de Stackoverflow ->>
@@ -162,7 +165,6 @@ public class ActivityComparacion extends AppCompatActivity {
                     // String con el nombre de los municipios de la provincia, sustituyendo
                     // las "ñ", acentos y espacios
                     String municipiosDeProvincia = "municipios_" + parent.getItemAtPosition(pos);
-
                     municipiosDeProvincia = municipiosDeProvincia.toLowerCase();
                     municipiosDeProvincia = municipiosDeProvincia.replace('á', 'a');
                     municipiosDeProvincia = municipiosDeProvincia.replace('é', 'e');
@@ -183,9 +185,9 @@ public class ActivityComparacion extends AppCompatActivity {
                     String[] municipios = csvListMunicipios2.get(0);
 
                     // Crear lista
-                    List<String> municipiosList = new ArrayList<String>();
+                    List<String> municipiosList = new ArrayList<>();
 
-                    // Texto informativo
+                    // Texto informativo del spinner
                     municipiosList.add("- Selecciona un municipio -");
 
                     // Convierto el array a lista
@@ -193,14 +195,14 @@ public class ActivityComparacion extends AppCompatActivity {
                         municipiosList.add(municipios[i]);
                     }
 
-                    ArrayAdapter<String> localidad2 = new ArrayAdapter<String>(ActivityComparacion.this, R.layout.spinner, municipiosList);
+                    ArrayAdapter<String> localidad2 = new ArrayAdapter<>(ActivityComparacion.this, R.layout.spinner, municipiosList);
                     spinnerLocalidad2.setAdapter(localidad2);
                     spinnerLocalidad2.setEnabled(true);
                     spinnerLocalidad2.setClickable(true);
                 } else {
-                    List<String> defaultText = new ArrayList<String>();
+                    List<String> defaultText = new ArrayList<>();
                     defaultText.add("- Selecciona un municipio -");
-                    ArrayAdapter<String> localidad2 = new ArrayAdapter<String>(ActivityComparacion.this, R.layout.spinner, defaultText);
+                    ArrayAdapter<String> localidad2 = new ArrayAdapter<>(ActivityComparacion.this, R.layout.spinner, defaultText);
                     spinnerLocalidad2.setAdapter(localidad2);
                     spinnerLocalidad2.setEnabled(false);
                     spinnerLocalidad2.setClickable(false);
@@ -213,56 +215,53 @@ public class ActivityComparacion extends AppCompatActivity {
             }
         });
 
-        buttonCompara = findViewById(R.id.button);                     // Boton comparar -> boton del layout
-        buttonCompara.setOnClickListener(new View.OnClickListener() {  // Listener del boton asociada a hacerComparacion
-            @Override
-            public void onClick(View v) {
-                String provincia1 = "";
-                String provincia2 = "";
-                String localidad1 = "";
-                String localidad2 = "";
+        buttonComparar = findViewById(R.id.button);                     // Boton comparar -> boton del layout
+        // Listener del boton asociada a hacerComparacion
+        buttonComparar.setOnClickListener(v -> {
+            String provinciaSpinner1;
+            String provinciaSpinner2;
+            String localidadSpinner1;
+            String localidadSpinner2;
 
-                if(spinnerProvincia1.getSelectedItemPosition() != 0) { // Provincia seleccionada
-                    provincia1 = spinnerProvincia1.getSelectedItem().toString();
-                    if(spinnerLocalidad1.getSelectedItemPosition() != 0) { // Localidad seleccionada
-                        localidad1 = spinnerLocalidad1.getSelectedItem().toString();
-                    } else {
-                        Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_municipio),Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                } else {
-                    Toast.makeText(ActivityComparacion.this, getString(R.string.toast_seleccion_provincia),Toast.LENGTH_SHORT).show();
+            if(spinnerProvincia1.getSelectedItemPosition() != 0) { // Provincia seleccionada
+                provinciaSpinner1 = spinnerProvincia1.getSelectedItem().toString();
+                if(spinnerLocalidad1.getSelectedItemPosition() != 0) { // Localidad seleccionada
+                    localidadSpinner1 = spinnerLocalidad1.getSelectedItem().toString();
+                } else { // Muestra toast para obligar a seleccionar algo en el spinner
+                    Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_municipio),Toast.LENGTH_SHORT).show();
                     return;
                 }
+            } else {
+                Toast.makeText(ActivityComparacion.this, getString(R.string.toast_seleccion_provincia),Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                if(spinnerProvincia2.getSelectedItemPosition() != 0) { // Provincia seleccionada
-                    provincia2 = spinnerProvincia2.getSelectedItem().toString();
-                    if(spinnerLocalidad2.getSelectedItemPosition() != 0) { // Localidad seleccionada
-                        localidad2 = spinnerLocalidad2.getSelectedItem().toString();
-                    } else {
-                        Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_municipio),Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                } else {
-                    Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_provincia),Toast.LENGTH_SHORT).show();
+            if(spinnerProvincia2.getSelectedItemPosition() != 0) { // Provincia seleccionada
+                provinciaSpinner2 = spinnerProvincia2.getSelectedItem().toString();
+                if(spinnerLocalidad2.getSelectedItemPosition() != 0) { // Localidad seleccionada
+                    localidadSpinner2 = spinnerLocalidad2.getSelectedItem().toString();
+                } else { // Muestra toast para obligar a seleccionar algo en el spinner
+                    Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_municipio),Toast.LENGTH_SHORT).show();
                     return;
                 }
+            } else {
+                Toast.makeText(ActivityComparacion.this,getString(R.string.toast_seleccion_provincia),Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-                System.out.println("Localidades/Provincias validas");
-                int cod1 = obtenerCodigoLocalidad(provincia1, localidad1);
-                int cod2 = obtenerCodigoLocalidad(provincia2, localidad2);
+            int cod1 = codigoLocalidad(provinciaSpinner1, localidadSpinner1);
+            int cod2 = codigoLocalidad(provinciaSpinner2, localidadSpinner2);
 
-                if(cod1 != -1 && cod2 != -1) {
-                    hacerComparacion (cod1,cod2);
-                } else{
-                    Toast.makeText(ActivityComparacion.this,getString(R.string.toast_error_cod_provincia),Toast.LENGTH_SHORT).show();
-                }
+            if(cod1 != -1 && cod2 != -1) {
+                comparar(cod1,cod2);
+            } else{ // Toast mostrando el error de codigo de provincia
+                Toast.makeText(ActivityComparacion.this,getString(R.string.toast_error_cod_provincia),Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private int obtenerCodigoLocalidad(String provincia, String localidad){
-        int codigo = -1;
+    private int codigoLocalidad(String provincia, String localidad){
+        int codigoLocalidad = -1;
         InputStream is = getResources().openRawResource(R.raw.codigos_zonas);
         com.example.meteocompare.CSVFile csvFile = new com.example.meteocompare.CSVFile(is);
         List<String[]> csvList = csvFile.read();
@@ -271,14 +270,14 @@ public class ActivityComparacion extends AppCompatActivity {
         for(String[] stringArray : csvList) {
 
             if(stringArray[4].equals(localidad) && stringArray[5].equals(provincia)) {
-                codigo = Integer.parseInt(stringArray[1]) * 1000 + Integer.parseInt(stringArray[2]);
+                codigoLocalidad = Integer.parseInt(stringArray[1]) * 1000 + Integer.parseInt(stringArray[2]);
                 break;
             }
         }
-        return codigo;
+        return codigoLocalidad;
     }
 
-    private void hacerComparacion(int cod1, int cod2){
+    private void comparar(int cod1, int cod2){
         getModel200(cod1, 1);
         getModel200(cod2, 2);
     }
@@ -286,7 +285,7 @@ public class ActivityComparacion extends AppCompatActivity {
     private void getModel200(int cod, final int index)
     {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(urlAemet)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -304,7 +303,8 @@ public class ActivityComparacion extends AppCompatActivity {
                     System.out.println("Error operacion 1");
                     return;
                 }
-                getPrediction(response.body(), index);
+                assert response.body() != null;
+                recopilarDatos(response.body(), index);
             }
 
             @Override
@@ -315,15 +315,15 @@ public class ActivityComparacion extends AppCompatActivity {
     }
 
     // Metodo recopilar datos
-    private void getPrediction(Model200 model200, final int index){
+    private void recopilarDatos(Model200 model200, final int index){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(urlAemet)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
         String url2 = model200.getDatos();
-        url2 = url2.replace(baseUrl,"");
+        url2 = url2.replace(urlAemet,"");
 
         System.out.println("Prediccion" + index);
         Call<List<PrediccionMunicipio>> callPrediccion = jsonPlaceHolderApi.getPrediccion(url2);
@@ -338,16 +338,16 @@ public class ActivityComparacion extends AppCompatActivity {
 
                 List<PrediccionMunicipio> prediccionMunicipioList = response.body();
                 // Lista de un solo elemento
+                assert prediccionMunicipioList != null;
                 PrediccionMunicipio prediccion = prediccionMunicipioList.get(0);
 
                 if(index == 1) {
                     System.out.println("Recibida prediccion 1");
-                    comprobarRecepcion(prediccion, index);
 
                 } else {
                     System.out.println("Recibida prediccion 2");
-                    comprobarRecepcion(prediccion, index);
                 }
+                recepcionCorrecta(prediccion, index);
             }
 
             @Override
@@ -358,18 +358,18 @@ public class ActivityComparacion extends AppCompatActivity {
     }
 
     // Compruebo que ambas respuestas han llegado para continuar
-    private void comprobarRecepcion(PrediccionMunicipio prediccionMunicipio, int index){
+    private void recepcionCorrecta(PrediccionMunicipio prediccionMunicipio, int index){
         if(index == 1) {
-            pred1rx = true;
+            pred1Bool = true;
             prediccion1 = prediccionMunicipio;
-            if(pred2rx == true) { // Se han recibido ambas
+            if(pred2Bool) { // Se han recibido ambas
                 procesarComparacion();
             }
 
         } else {
-            pred2rx = true;
+            pred2Bool = true;
             prediccion2 = prediccionMunicipio;
-            if (pred1rx == true) {
+            if (pred1Bool) {
                 procesarComparacion();
             }
         }
