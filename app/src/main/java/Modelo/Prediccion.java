@@ -11,13 +11,13 @@ public class Prediccion implements Serializable {
 
     @SerializedName("dia")
     @Expose
-    private List<Dium> dia = null;
+    private List<ModelMain> dia = null;
 
-    public List<Dium> getDia() {
+    public List<ModelMain> getDia() {
         return dia;
     }
 
-    public void setDia(List<Dium> dia) {
+    public void setDia(List<ModelMain> dia) {
         this.dia = dia;
     }
 

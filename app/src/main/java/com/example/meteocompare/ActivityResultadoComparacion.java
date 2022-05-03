@@ -103,7 +103,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
 
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
 
-        tvFecha.setText("Prediccion para el día " + dateFormat2.format(fecha1));
+        tvFecha.setText("Prediccion del " + dateFormat2.format(fecha1));
         tvLocalidad1.setText(prediccion1.getNombre());
         tvLocalidad2.setText( prediccion2.getNombre());
         tvMaxTemp1.setText(""+maxTemp1+"°C");

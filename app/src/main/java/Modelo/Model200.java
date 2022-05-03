@@ -2,7 +2,7 @@ package Modelo;
 
 import java.io.Serializable;
 
-// Clase que almacena el resultado de la peticion
+// Clase para almacenar el resultado de la peticion
 public class Model200 implements Serializable {
 
     // Atts

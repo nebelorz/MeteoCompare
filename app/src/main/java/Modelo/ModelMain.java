@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class Dium implements Serializable {
+public class ModelMain implements Serializable {
 
     @SerializedName("probPrecipitacion")
     @Expose
@@ -25,7 +25,7 @@ public class Dium implements Serializable {
     @Expose
     private List<Viento> viento = null;
 
-    @SerializedName("rachaVientos")
+    @SerializedName("rachaViento")
     @Expose
     private List<RachaViento> rachaViento = null;
 
@@ -110,7 +110,7 @@ public class Dium implements Serializable {
 
     @Override
     public String toString() {
-        return "Dium{" +
+        return "ModelMain{" +
                 "probPrecipitacion=" + probPrecipitacion +
                 ", cotaNieve=" + cotaNieve +
                 ", estadoCielo=" + estadoCielo +

@@ -4,7 +4,7 @@
 
     <!-- Activity Comparacion -->
     <!-- Textos -->
-    <string name="txt_comparacion">Selecciona dos localidades</string>
+    <string name="txt_comparacion">Selecciona las localidades</string>
     <string name="txt_localidad_1">Localidad 1</string>
     <string name="txt_localidad_2">Localidad 2</string>
     <!-- Buttons -->

@@ -7,23 +7,24 @@
     android:background="@drawable/second_background"
     tools:context=".ActivityComparacion">
 
+
     <TextView
         android:id="@+id/textViewLocalidades"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="584dp"
         android:text="@string/txt_comparacion"
         android:textAlignment="center"
         android:textColor="@color/colorBlanco"
-        android:textSize="20sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
     <TextView
         android:id="@+id/textViewLocalidad1"
@@ -31,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginEnd="150dp"
-        android:layout_marginBottom="460dp"
         android:text="@string/txt_localidad_1"
         android:textAlignment="textStart"
         android:textColor="@color/colorBlanco"
@@ -40,7 +40,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.30" />
 
     <Spinner
         android:id="@+id/spinnerProvincia1"
