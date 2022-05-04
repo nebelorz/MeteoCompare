@@ -1,5 +1,7 @@
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -18,6 +20,7 @@ public class UvMax implements Serializable {
             this.value = value;
         }
 
+        @NonNull
         @Override
         public String toString() {
             return "UvMax{" +

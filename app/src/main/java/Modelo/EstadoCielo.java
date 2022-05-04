@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -41,6 +43,7 @@ public class EstadoCielo implements Serializable {
         this.descripcion = descripcion;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "EstadoCielo{" +

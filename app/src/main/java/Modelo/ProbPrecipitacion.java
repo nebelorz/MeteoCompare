@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -30,6 +32,7 @@ public class ProbPrecipitacion implements Serializable {
         this.periodo = periodo;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "ProbPrecipitacion{" +

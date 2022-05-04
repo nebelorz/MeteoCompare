@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -87,6 +89,7 @@ public class PrediccionMunicipio implements Serializable {
         this.version = version;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "PrediccionMunicipio{" +

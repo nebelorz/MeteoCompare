@@ -1,5 +1,7 @@
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 // Clase para almacenar el resultado de la peticion
@@ -41,6 +43,7 @@ public class Model200 implements Serializable {
     }
 
     // ToString
+    @NonNull
     @Override
     public String toString() {
         return "Model200{" +

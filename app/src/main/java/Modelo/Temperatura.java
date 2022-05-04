@@ -1,5 +1,7 @@
 package Modelo;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Temperatura implements Serializable {
@@ -24,6 +26,7 @@ public class Temperatura implements Serializable {
     }
 
     // ToString
+    @NonNull
     @Override
     public String toString() {
         return "PrediccionMunicipio{" +
