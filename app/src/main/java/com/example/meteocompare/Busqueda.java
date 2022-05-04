@@ -6,20 +6,20 @@ import java.util.Date;
 public class Busqueda implements Serializable {
     // Atts
     private int id;
-    private String ubicacion;
+    private final String ubicacion;
     private final String provincia;
-    private final Date fecha;
-    private final float maxTemp;
-    private final float minTemp;
-    private final float avgTemp;
-    private final float avgViento;
-    private final float uvMax;
     private final String cielo;
-    private final float precipitacion;
+    private final Date fecha;
+    private final int maxTemp;
+    private final int minTemp;
+    private final int avgTemp;
+    private final int avgViento;
+    private final int uvMax;
+    private final int precipitacion;
 
 
     // Const
-    public Busqueda(int id, String ubicacion, String provincia, Date fecha, float minTemp, float maxTemp, float avgTemp, float avgViento, float uvMax, float precipitacion, String cielo) {
+    public Busqueda(int id, String ubicacion, String provincia, Date fecha, int minTemp, int maxTemp, int avgTemp, int avgViento, int uvMax, int precipitacion, String cielo) {
         this.id = id;
         this.ubicacion = ubicacion;
         this.provincia = provincia;
@@ -66,27 +66,17 @@ public class Busqueda implements Serializable {
         return fecha;
     }
 
-    public float getMinTemp() {
-        return minTemp;
-    }
+    public int getMinTemp() { return minTemp; }
 
-    public float getMaxTemp() {
-        return maxTemp;
-    }
+    public int getMaxTemp() { return maxTemp; }
 
-    public float getAvgTemp() {
-        return avgTemp;
-    }
+    public int getAvgTemp() { return avgTemp; }
 
-    public float getAvgViento() {
-        return avgViento;
-    }
+    public int getAvgViento() { return avgViento; }
 
-    public float getUvMax() {
-        return uvMax;
-    }
+    public int getUvMax() { return uvMax; }
 
-    public float getPrecipitacion() {
+    public int getPrecipitacion() {
         return precipitacion;
     }
 
