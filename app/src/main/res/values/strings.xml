@@ -65,8 +65,8 @@
     <string name="toast_login_correcto">Login correcto!</string>
     <string name="toast_login_incorrecto">Login incorrecto</string>
     <string name="toast_registro_correcto">Registro correcto!</string>
-    <string name="toast_email_existente">El correo ya está en uso</string>
-    <string name="toast_email_incorrecto">Introduce un correo válido (ejemplo@gmail.com)</string>
+    <string name="toast_correo_existente">El correo ya está en uso</string>
+    <string name="toast_correo_incorrecto">Introduce un correo válido (ejemplo@gmail.com)</string>
     <string name="toast_password_incorrecto">Tu contraseña debe contener 8 caracteres y almenos una mayúscula</string>
 
     <string name="toast_seleccion_provincia">Selecciona una provincia</string>

@@ -23,7 +23,6 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         setContentView(R.layout.activity_resultadocomparacion);
 
         // Atts
-        // TextView del layout
         TextView tvFecha = findViewById(R.id.tvFecha);
         TextView tvLocalidad1 = findViewById(R.id.tvLocalidad1);
         TextView tvLocalidad2 = findViewById(R.id.tvLocalidad2);
@@ -42,6 +41,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         TextView tvCielo1;
         TextView tvCielo2;
 
+        // TextView del layout
         tvMaxTemp2 = findViewById(R.id.tvMaxTemp2);
         tvMinTemp1 = findViewById(R.id.tvMinTemp1);
         tvMinTemp2 = findViewById(R.id.tvMinTemp2);

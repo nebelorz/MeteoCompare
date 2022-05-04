@@ -6,7 +6,7 @@ import java.util.Date;
 public class Busqueda implements Serializable {
     // Atts
     private int id;
-    private final String ubicacion;
+    private String ubicacion;
     private final String provincia;
     private final Date fecha;
     private final float maxTemp;

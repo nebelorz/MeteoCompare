@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class Comparacion implements Serializable {
     // Atts
-    private Date fecha;
-    private Busqueda busqueda1;
-    private Busqueda busqueda2;
+    private final Date fecha;
+    private final Busqueda busqueda1;
+    private final Busqueda busqueda2;
 
     // Const
     public Comparacion(Date fecha, Busqueda busqueda1, Busqueda busqueda2) {
@@ -23,29 +23,17 @@ public class Comparacion implements Serializable {
         this.busqueda2 = new Busqueda();
     }
 
-    // Gets & Sets
+    // Gets
     public Date getFecha() {
         return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public Busqueda getBusqueda1() {
         return busqueda1;
     }
 
-    public void setBusqueda1(Busqueda busqueda1) {
-        this.busqueda1 = busqueda1;
-    }
-
     public Busqueda getBusqueda2() {
         return busqueda2;
-    }
-
-    public void setBusqueda2(Busqueda busqueda2) {
-        this.busqueda2 = busqueda2;
     }
 
     // ToString

@@ -7,8 +7,8 @@ public class Usuario implements Serializable {
     // Atts
     private int id;
     private String nombre;
-    private String email;
-    private String contraseña;
+    private String correo;
+    private String password;
     private com.example.meteocompare.Historial historial;
 
     // Constructors
@@ -16,23 +16,23 @@ public class Usuario implements Serializable {
     {
         this.id = 0;
         this.nombre = "";
-        this.email = "";
-        this.contraseña = "";
+        this.correo = "";
+        this.password = "";
         this.historial = new com.example.meteocompare.Historial();
     }
 
-    public Usuario(int id, String nombre, String email, String contraseña) {
+    public Usuario(int id, String nombre, String correo, String password) {
         this.id = id;
         this.nombre = nombre;
-        this.email = email;
-        this.contraseña = contraseña;
+        this.correo = correo;
+        this.password = password;
         this.historial = new com.example.meteocompare.Historial();
     }
-    public Usuario(int id, String nombre, String email, String contraseña, com.example.meteocompare.Historial historial) {
+    public Usuario(int id, String nombre, String correo, String password, com.example.meteocompare.Historial historial) {
         this.id = id;
         this.nombre = nombre;
-        this.email = email;
-        this.contraseña = contraseña;
+        this.correo = correo;
+        this.password = password;
         this.historial = historial;
     }
 
@@ -47,22 +47,20 @@ public class Usuario implements Serializable {
     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public com.example.meteocompare.Historial getHistorial() {
@@ -79,8 +77,8 @@ public class Usuario implements Serializable {
         return "Usuario{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", email='" + email + '\'' +
-                ", contraseña='" + contraseña + '\'' +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
                 ", historial='" + historial.toString() + '\'' +
                 '}';
     }
