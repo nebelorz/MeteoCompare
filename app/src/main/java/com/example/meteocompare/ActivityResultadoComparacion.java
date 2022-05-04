@@ -62,7 +62,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         // Obtencion datos de la prediccion 1
         int maxTemp1 = prediccion1.getPrediccion().getDia().get(1).getTemperatura().getMaxima();
         int minTemp1 = prediccion1.getPrediccion().getDia().get(1).getTemperatura().getMinima();
-        float avgTemp1 = (maxTemp1+minTemp1)/2;
+        int avgTemp1 = (maxTemp1+minTemp1)/2;
         int precipitacion1 = getProbPrecMax(prediccion1);
         int uvMax1 = prediccion1.getPrediccion().getDia().get(1).getUvMax();
         int maxViento1 = getVientoMax(prediccion1);
@@ -75,7 +75,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
         // Obtencion datos de la prediccion 2
         int maxTemp2 = prediccion2.getPrediccion().getDia().get(1).getTemperatura().getMaxima();
         int minTemp2 = prediccion2.getPrediccion().getDia().get(1).getTemperatura().getMinima();
-        float avgTemp2 = (maxTemp2+minTemp2)/2;
+        int avgTemp2 = (maxTemp2+minTemp2)/2;
         int precipitacion2 = getProbPrecMax(prediccion2);
         int uvMax2 = prediccion2.getPrediccion().getDia().get(1).getUvMax();
         int maxViento2 = getVientoMax(prediccion2);

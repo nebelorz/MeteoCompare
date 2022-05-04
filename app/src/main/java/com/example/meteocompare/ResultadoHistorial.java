@@ -57,7 +57,7 @@ public class ResultadoHistorial extends AppCompatActivity {
 
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
 
-        tvFecha.setText("Comparación del " + dateFormat2.format(comparacion.getBusqueda1().getFecha()));
+        tvFecha.setText("Comparación para el " + dateFormat2.format(comparacion.getBusqueda1().getFecha()));
         tvLocalidad1.setText(comparacion.getBusqueda1().getUbicacion());
         tvMaxTemp1.setText(""+comparacion.getBusqueda1().getMaxTemp()+"°C");
         tvMinTemp1.setText(""+comparacion.getBusqueda1().getMinTemp()+"°C");

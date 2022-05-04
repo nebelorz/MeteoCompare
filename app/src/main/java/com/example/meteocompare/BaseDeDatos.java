@@ -172,12 +172,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
                 cursor.getString(9),            // ubicacion
                 cursor.getString(10),           // provincia
                 new Date(cursor.getLong(7)),    // fecha
-                cursor.getFloat(3),             // minTemp
-                cursor.getFloat(1),             // maxTemp
-                cursor.getFloat(2),             // avgTemp
-                cursor.getFloat(5),             // avgViento
-                cursor.getFloat(6),             // uvMax
-                cursor.getFloat(4),             // precipitacion
+                cursor.getInt(2),             // minTemp
+                cursor.getInt(1),             // maxTemp
+                cursor.getInt(3),             // avgTemp
+                cursor.getInt(5),             // avgViento
+                cursor.getInt(6),             // uvMax
+                cursor.getInt(4),             // precipitacion
                 cursor.getString(8)             // cielo
         );
 
