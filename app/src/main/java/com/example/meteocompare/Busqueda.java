@@ -6,16 +6,16 @@ import java.util.Date;
 public class Busqueda implements Serializable {
     // Atts
     private int id;
-    private String ubicacion;
-    private String provincia;
-    private Date fecha;
-    private float maxTemp;
-    private float minTemp;
-    private float avgTemp;
-    private float avgViento;
-    private float uvMax;
-    private String cielo;
-    private float precipitacion;
+    private final String ubicacion;
+    private final String provincia;
+    private final Date fecha;
+    private final float maxTemp;
+    private final float minTemp;
+    private final float avgTemp;
+    private final float avgViento;
+    private final float uvMax;
+    private final String cielo;
+    private final float precipitacion;
 
 
     // Const
@@ -52,7 +52,6 @@ public class Busqueda implements Serializable {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -61,76 +60,38 @@ public class Busqueda implements Serializable {
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
     public String getProvincia() { return provincia; }
-
-    public void setProvincia(String provincia) { this.provincia = provincia; }
 
     public Date getFecha() {
         return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public float getMinTemp() {
         return minTemp;
     }
 
-    public void setMinTemp(float minTemp) {
-        this.minTemp = minTemp;
-    }
-
     public float getMaxTemp() {
         return maxTemp;
-    }
-
-    public void setMaxTemp(float maxTemp) {
-        this.maxTemp = maxTemp;
     }
 
     public float getAvgTemp() {
         return avgTemp;
     }
 
-    public void setAvgTemp(float avgTemp) {
-        this.avgTemp = avgTemp;
-    }
-
     public float getAvgViento() {
         return avgViento;
-    }
-
-    public void setAvgViento(float avgViento) {
-        this.avgViento = avgViento;
     }
 
     public float getUvMax() {
         return uvMax;
     }
 
-    public void setUvMax(float uvMax) {
-        this.uvMax = uvMax;
-    }
-
     public float getPrecipitacion() {
         return precipitacion;
     }
 
-    public void setPrecipitacion(float precipitacion) {
-        this.precipitacion = precipitacion;
-    }
-
     public String getCielo() {
         return cielo;
-    }
-
-    public void setCielo(String cielo) {
-        this.cielo = cielo;
     }
 
     // ToString

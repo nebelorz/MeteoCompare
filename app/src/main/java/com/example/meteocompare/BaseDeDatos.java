@@ -109,13 +109,11 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery ("SELECT last_insert_rowid()", null);
         cursor.moveToFirst();
 
-        int id = cursor.getInt(0);
-
-        return id;
+        return cursor.getInt(0);
     }
 
     // Metodo para insertar datos de la comparacion
-    public boolean insertDataComparacion(int user_id, Date fecha, Busqueda busqueda1, Busqueda busqueda2){
+    public void insertDataComparacion(int user_id, Date fecha, Busqueda busqueda1, Busqueda busqueda2){
         SQLiteDatabase db = getWritableDatabase();
 
         // Insertar datos de ambas busquedas
@@ -152,7 +150,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
         db.close();
 
-        return true;
     }
 
     // Recuperar datos de busqueda
@@ -212,7 +209,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
                 // Si hay algun error en las busquedas
                 if (busqueda1.getId() != 0 && busqueda2.getId() != 0) {
-                    System.out.println("Busqueda 1: \n " + busqueda1.toString() + "\nBusqueda 2: \n " + busqueda2.toString());
+                    System.out.println("Busqueda 1: \n " + busqueda1 + "\nBusqueda 2: \n " + busqueda2);
 
                     comparacionList.add(new Comparacion(new Date(cursor.getLong(2)), busqueda1, busqueda2));
                 } else {
@@ -227,12 +224,12 @@ public class BaseDeDatos extends SQLiteOpenHelper {
     }
 
     // Checkeo del login
-    public Usuario checkLogin(String email, String contraseña){
+    public Usuario checkLogin(String correo, String password){
         SQLiteDatabase lectura = getReadableDatabase();
         String query = "SELECT * FROM usuario WHERE email = "
-                + "\"" + email + "\""
+                + "\"" + correo + "\""
                 + " AND contraseña = "
-                + "\"" + contraseña + "\"" ;
+                + "\"" + password + "\"" ;
 
         System.out.println(query);
 

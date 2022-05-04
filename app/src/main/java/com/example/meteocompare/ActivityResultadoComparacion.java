@@ -17,35 +17,31 @@ import Modelo.Viento;
 
 public class ActivityResultadoComparacion extends AppCompatActivity {
 
-    // Atts
-    private TextView tvFecha;
-    private TextView tvLocalidad1;
-    private TextView tvLocalidad2;
-    private TextView tvMaxTemp1;
-    private TextView tvMaxTemp2;
-    private TextView tvMinTemp1;
-    private TextView tvMinTemp2;
-    private TextView tvAvgTemp1;
-    private TextView tvAvgTemp2;
-    private TextView tvUvMax1;
-    private TextView tvUvMax2;
-    private TextView tvAvgViento1;
-    private TextView tvAvgViento2;
-    private TextView tvPrecipitacion1;
-    private TextView tvPrecipitacion2;
-    private TextView tvCielo1;
-    private TextView tvCielo2;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultadocomparacion);
 
-        // TextView con el layout
-        tvFecha = findViewById(R.id.tvFecha);
-        tvLocalidad1 = findViewById(R.id.tvLocalidad1);
-        tvLocalidad2 = findViewById(R.id.tvLocalidad2);
-        tvMaxTemp1 = findViewById(R.id.tvMaxTemp1);
+        // Atts
+        // TextView del layout
+        TextView tvFecha = findViewById(R.id.tvFecha);
+        TextView tvLocalidad1 = findViewById(R.id.tvLocalidad1);
+        TextView tvLocalidad2 = findViewById(R.id.tvLocalidad2);
+        TextView tvMaxTemp1 = findViewById(R.id.tvMaxTemp1);
+        TextView tvMaxTemp2;
+        TextView tvMinTemp1;
+        TextView tvMinTemp2;
+        TextView tvAvgTemp1;
+        TextView tvAvgTemp2;
+        TextView tvUvMax1;
+        TextView tvUvMax2;
+        TextView tvAvgViento1;
+        TextView tvAvgViento2;
+        TextView tvPrecipitacion1;
+        TextView tvPrecipitacion2;
+        TextView tvCielo1;
+        TextView tvCielo2;
+
         tvMaxTemp2 = findViewById(R.id.tvMaxTemp2);
         tvMinTemp1 = findViewById(R.id.tvMinTemp1);
         tvMinTemp2 = findViewById(R.id.tvMinTemp2);
@@ -99,7 +95,7 @@ public class ActivityResultadoComparacion extends AppCompatActivity {
 
         Date fechaComparacion = Calendar.getInstance().getTime();
 
-        System.out.println(fechaComparacion.toString());
+        System.out.println(fechaComparacion);
 
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
 
