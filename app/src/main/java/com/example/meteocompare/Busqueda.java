@@ -66,6 +66,10 @@ public class Busqueda implements Serializable {
         return fecha;
     }
 
+    public String getCielo() {
+        return cielo;
+    }
+
     public int getMinTemp() { return minTemp; }
 
     public int getMaxTemp() { return maxTemp; }
@@ -78,10 +82,6 @@ public class Busqueda implements Serializable {
 
     public int getPrecipitacion() {
         return precipitacion;
-    }
-
-    public String getCielo() {
-        return cielo;
     }
 
     // ToString
